@@ -2,15 +2,19 @@
   <tr>
     <td>
       <img src="assets/images/faces/face1.jpg" class="mr-2" alt="image" />
-      Nguyen My Hanh
+      {{ user.name }}
     </td>
-    <td>23</td>
+    <td>{{ user.age }}</td>
     <td>
-      <label class="badge badge-gradient-primary mr-2">Java</label>
-      <label class="badge badge-gradient-primary mr-2">Java</label>
-      <label class="badge badge-gradient-primary mr-2">Java</label>
+      <label
+        v-for="(proLang, index) in user.programmingLanguage"
+        :key="index"
+        class="badge badge-gradient-primary mr-2"
+      >
+        {{ proLang }}
+      </label>
     </td>
-    <td>Nam</td>
+    <td>{{ user.gender }}</td>
     <td>
       <button type="button" class="mr-2 btn btn-gradient-danger btn-icon-text">
         <i class="mdi mdi-delete btn-icon-prepend"></i> Remove
@@ -23,7 +27,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  props: {
+    user: {
+      type: Object,
+    },
+  },
+};
 </script>
 
 <style></style>
