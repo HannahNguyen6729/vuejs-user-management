@@ -31,10 +31,6 @@ export default {
     };
   },
   methods: {
-    // handleSearch() {
-    //   this.$store.dispatch("setSearchKeyWordsMutation", this.searchUserName);
-    //   // this.$store.commit("setSearchKeyWordsMutation", this.searchUserName);
-    // },
     ...mapActions({
       handleSearch: "setSearchKeyWordsMutation",
     }),

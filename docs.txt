@@ -1,0 +1,5 @@
+- Add user functionality:
+1. Handle form submission
+2. Handle event: click submit--> dispatch action to store
+3. Handle action --> mutation (update state)
+4. Get state from store to render UI
