@@ -1,7 +1,7 @@
 <template>
   <tbody>
     <user-item
-      v-for="user in filterUserListMenOnly"
+      v-for="user in userListBySearchResult"
       :key="user.id"
       :user="user"
     ></user-item>
@@ -27,7 +27,9 @@ export default {
     //getter: modify the state to get the modified data and store it in computed property
     ...mapGetters({
       filterUserListMenOnly: "filterUserListMenOnly",
+      userListBySearchResult: "userListBySearchResult",
     }),
+    //mutations: update data in the store
 
     // filterUserListMenOnly() {
     //   return this.$store.getters.filterUserListMenOnly;

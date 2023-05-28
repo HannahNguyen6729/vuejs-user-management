@@ -10,11 +10,22 @@ const store = createStore({
   state() {
     return {
       userList,
+      searchKeyWords: "anda",
     };
   },
   getters: {
     filterUserListMenOnly(state) {
       return state.userList.filter((user) => user.gender === "Male");
+    },
+    userListBySearchResult(state) {
+      return state.userList.filter((user) =>
+        user.name.toLowerCase().includes(state.searchKeyWords.toLowerCase())
+      );
+    },
+  },
+  mutations: {
+    setSearchKyWordsMutation(state, payload) {
+      state.searchKeyWords = payload;
     },
   },
 });
