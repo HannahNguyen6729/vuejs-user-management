@@ -185,6 +185,12 @@ export default {
       },
     };
   },
+  props: {
+    userInfoProp: { type: Object },
+  },
+  created() {
+    if (this.userInfoProp) this.user = this.userInfoProp;
+  },
   methods: {
     ...mapActions({
       handleSubmit: "addUserAction",

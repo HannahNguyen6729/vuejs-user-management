@@ -38,19 +38,19 @@
         :isOpen="isOpenModalAddUser"
         :handelCloseModal="handleCloseModalAddUser"
       >
-        <form-add-user></form-add-user>
+        <form-user></form-user>
       </app-modal>
     </teleport>
   </div>
 </template>
 
 <script>
-import FormAddUser from "./FormAddUser.vue";
+import FormUser from "./FormUser.vue";
 import SearchBar from "./SearchBar.vue";
 import UserList from "./UserList.vue";
 export default {
   components: {
-    FormAddUser,
+    FormUser,
     SearchBar,
     UserList,
   },

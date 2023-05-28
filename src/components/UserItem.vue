@@ -37,14 +37,14 @@
       :isOpen="isOpenModalEdit"
       :handelCloseModal="handleCloseModalEdit"
     >
-      <form-add-user></form-add-user>
+      <form-user :userInfoProp="user"></form-user>
     </app-modal>
   </teleport>
 </template>
 
 <script>
 import { mapActions } from "vuex";
-import FormAddUser from "../components/FormAddUser.vue";
+import FormUser from "./FormUser.vue";
 export default {
   data() {
     return {
@@ -56,7 +56,7 @@ export default {
       type: Object,
     },
   },
-  components: { FormAddUser },
+  components: { FormUser },
   methods: {
     handleOpenModalEdit() {
       this.isOpenModalEdit = true;
