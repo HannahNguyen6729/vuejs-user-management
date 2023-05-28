@@ -23,25 +23,47 @@
       >
         <i class="mdi mdi-delete btn-icon-prepend"></i> Remove
       </button>
-      <button type="button" class="btn btn-gradient-info btn-icon-text">
+      <button
+        @click="handleOpenModalEdit"
+        type="button"
+        class="btn btn-gradient-info btn-icon-text"
+      >
         <i class="mdi mdi-border-color btn-icon-prepend"></i> Edit
       </button>
     </td>
   </tr>
+  <teleport to="#app">
+    <app-modal
+      :isOpen="isOpenModalEdit"
+      :handelCloseModal="handleCloseModalEdit"
+    >
+      <form-add-user></form-add-user>
+    </app-modal>
+  </teleport>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import FormAddUser from "../components/FormAddUser.vue";
 export default {
   data() {
-    return {};
+    return {
+      isOpenModalEdit: false, //close modal
+    };
   },
   props: {
     user: {
       type: Object,
     },
   },
+  components: { FormAddUser },
   methods: {
+    handleOpenModalEdit() {
+      this.isOpenModalEdit = true;
+    },
+    handleCloseModalEdit() {
+      this.isOpenModalEdit = false;
+    },
     ...mapActions({
       removeUser: "removeUserAction",
     }),

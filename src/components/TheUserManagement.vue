@@ -35,8 +35,8 @@
     </div>
     <teleport to="#app">
       <app-modal
-        :isOpen="isOpenModalCartList"
-        :handelCloseModal="handleCloseModalCartList"
+        :isOpen="isOpenModalAddUser"
+        :handelCloseModal="handleCloseModalAddUser"
       >
         <form-add-user></form-add-user>
       </app-modal>
@@ -56,15 +56,15 @@ export default {
   },
   data() {
     return {
-      isOpenModalCartList: false, // đóng modal
+      isOpenModalAddUser: false, // close modal
     };
   },
   methods: {
     handleOpenModalCartList() {
-      this.isOpenModalCartList = true; // mở modal
+      this.isOpenModalAddUser = true; // open modal
     },
-    handleCloseModalCartList() {
-      this.isOpenModalCartList = false; // đóng modal
+    handleCloseModalAddUser() {
+      this.isOpenModalAddUser = false; // close modal
     },
   },
 };
