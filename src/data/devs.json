@@ -1,22 +1,22 @@
 [
   {
     "id": 1,
-    "name": "Nguyễn Phong Hào",
-    "avatar": "hinh",
+    "name": "John Smith",
+    "avatar": "img",
     "age": 23,
-    "description": "thân thiện , hoc hỏi nhanh",
+    "description": "friendly , adaptable",
     "programmingLanguage": ["JS", "JAVA"],
-    "gender": "Nam",
+    "gender": "Male",
     "type": "ADMIN"
   },
   {
     "id": 2,
-    "name": "Phan Thùy Duyên",
-    "avatar": "hinh",
+    "name": "Amanda Holden",
+    "avatar": "img",
     "age": 22,
-    "description": "thân thiện , hoc hỏi nhanh",
+    "description": "determined , helpful",
     "programmingLanguage": ["PHP", "C#"],
-    "gender": "Nữ",
+    "gender": "Female",
     "type": "CLIENT"
   }
 ]

@@ -12,6 +12,11 @@ const store = createStore({
       userList,
     };
   },
+  getters: {
+    filterUserListMenOnly(state) {
+      return state.userList.filter((user) => user.gender === "Male");
+    },
+  },
 });
 
 const app = createApp(App);
