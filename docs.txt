@@ -3,3 +3,9 @@
 2. Handle event: click submit--> dispatch action to store
 3. Handle action --> mutation (update state)
 4. Get state from store to render UI
+
+-Remove user functionality:
+1. Identify the component contains remove button (UserItem)
+2. Handle event: click remove btn --> dispatch action to store (send userId)
+3. Handle action in the store , commit mutation (delete and update the state)
+4. Get state from store to render UI

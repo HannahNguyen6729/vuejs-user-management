@@ -16,7 +16,11 @@
     </td>
     <td>{{ user.gender }}</td>
     <td>
-      <button type="button" class="mr-2 btn btn-gradient-danger btn-icon-text">
+      <button
+        @click="removeUser(user.id)"
+        type="button"
+        class="mr-2 btn btn-gradient-danger btn-icon-text"
+      >
         <i class="mdi mdi-delete btn-icon-prepend"></i> Remove
       </button>
       <button type="button" class="btn btn-gradient-info btn-icon-text">
@@ -27,6 +31,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {};
@@ -35,6 +40,11 @@ export default {
     user: {
       type: Object,
     },
+  },
+  methods: {
+    ...mapActions({
+      removeUser: "removeUserAction",
+    }),
   },
 };
 </script>

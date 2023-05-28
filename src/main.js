@@ -31,6 +31,15 @@ const store = createStore({
       state.userList = [...state.userList, payload];
       // state.userList.push(payload)
     },
+    removeUserActionMutation(state, payload) {
+      const index = state.userList.findIndex((user) => user.id === payload);
+      if (index !== -1) {
+        state.userList = state.userList.filter((user) => user.id !== payload);
+        //state.userList.splice(index, 1);
+      } else {
+        alert("cannot find the matched user id");
+      }
+    },
   },
   actions: {
     setSearchKeyWordsMutation(context, payload) {
@@ -46,6 +55,10 @@ const store = createStore({
         id: Math.floor(Math.random() * 9999999999999999),
       };
       context.commit("addUserActionMutation", newUser);
+    },
+    removeUserAction(context, payload) {
+      // console.log("context", context, "payload", payload);
+      context.commit("removeUserActionMutation", payload);
     },
   },
 });
