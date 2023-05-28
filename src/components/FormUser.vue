@@ -189,7 +189,8 @@ export default {
     userInfoProp: { type: Object },
   },
   created() {
-    if (this.userInfoProp) this.user = this.userInfoProp;
+    //assign the userProp to user data, using spread operator to avoid the reference
+    if (this.userInfoProp) this.user = { ...this.userInfoProp };
   },
   methods: {
     ...mapActions({
