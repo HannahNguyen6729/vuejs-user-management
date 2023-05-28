@@ -6,7 +6,7 @@
     "age": 23,
     "description": "friendly , adaptable",
     "programmingLanguage": ["JS", "JAVA"],
-    "gender": "Male",
+    "gender": "male",
     "type": "ADMIN"
   },
   {
@@ -16,7 +16,7 @@
     "age": 22,
     "description": "determined , helpful",
     "programmingLanguage": ["PHP", "C#"],
-    "gender": "Female",
+    "gender": "female",
     "type": "CLIENT"
   }
 ]

@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <form @submit.prevent class="forms-sample">
+      <form class="forms-sample">
         <div class="form-group">
           <label for="username">Username</label>
           <input
@@ -157,7 +157,7 @@
           ></textarea>
         </div>
         <button
-          @click="handleSubmit(user)"
+          @click.prevent="handleSubmit()"
           type="submit"
           class="btn btn-gradient-primary mr-2"
         >
@@ -193,8 +193,18 @@ export default {
     if (this.userInfoProp) this.user = { ...this.userInfoProp };
   },
   methods: {
+    handleSubmit() {
+      if (this.userInfoProp) {
+        //update user data
+        this.handleUpdateUser(this.user);
+      } else {
+        //add a new user
+        this.handleAddUser(this.user);
+      }
+    },
     ...mapActions({
-      handleSubmit: "addUserAction",
+      handleAddUser: "addUserAction",
+      handleUpdateUser: "updateUserAction",
     }),
   },
 };

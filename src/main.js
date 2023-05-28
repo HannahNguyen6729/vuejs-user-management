@@ -10,7 +10,7 @@ const store = createStore({
   state() {
     return {
       userList,
-      searchKeyWords: "anda",
+      searchKeyWords: "",
     };
   },
   getters: {
@@ -31,6 +31,21 @@ const store = createStore({
       state.userList = [...state.userList, payload];
       // state.userList.push(payload)
     },
+    updateUserActionMutation(state, payload) {
+      const index = state.userList.findIndex((user) => user.id === payload.id);
+      if (index !== -1) {
+        state.userList[index] = payload;
+      } else {
+        alert("can not update user");
+      }
+      //   state.userList = [...state.userList].map((user) => {
+      //     if (user.id === payload.id) {
+      //       return payload;
+      //     } else {
+      //       return user;
+      //     }
+      //   });
+    },
     removeUserActionMutation(state, payload) {
       const index = state.userList.findIndex((user) => user.id === payload);
       if (index !== -1) {
@@ -45,7 +60,7 @@ const store = createStore({
     setSearchKeyWordsMutation(context, payload) {
       setTimeout(() => {
         context.commit("setSearchKeyWordsMutation", payload);
-      }, 1500);
+      }, 800);
     },
     addUserAction(context, payload) {
       //console.log("context", context,"payload", payload);
@@ -55,6 +70,10 @@ const store = createStore({
         id: Math.floor(Math.random() * 9999999999999999),
       };
       context.commit("addUserActionMutation", newUser);
+    },
+    updateUserAction(context, payload) {
+      console.log(payload);
+      context.commit("updateUserActionMutation", payload);
     },
     removeUserAction(context, payload) {
       // console.log("context", context, "payload", payload);
