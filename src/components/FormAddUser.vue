@@ -5,7 +5,7 @@
         <div class="form-group">
           <label for="username">Username</label>
           <input
-            v-model="name"
+            v-model="user.name"
             type="text"
             class="form-control"
             id="username"
@@ -15,7 +15,7 @@
         <div class="form-group">
           <label for="age">Age</label>
           <input
-            v-model.number="age"
+            v-model.number="user.age"
             type="number"
             class="form-control"
             id="age"
@@ -25,7 +25,7 @@
         <div class="form-group">
           <label for="avatar">Avatar</label>
           <input
-            v-model="avatar"
+            v-model="user.avatar"
             type="text"
             class="form-control"
             id="avatar"
@@ -38,7 +38,7 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input
-                  v-model="programmingLanguage"
+                  v-model="user.programmingLanguage"
                   value="Javascript"
                   type="checkbox"
                   class="form-check-input" />
@@ -48,7 +48,7 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input
-                  v-model="programmingLanguage"
+                  v-model="user.programmingLanguage"
                   value="Java"
                   type="checkbox"
                   class="form-check-input" />
@@ -58,7 +58,7 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input
-                  v-model="programmingLanguage"
+                  v-model="user.programmingLanguage"
                   value="PHP"
                   type="checkbox"
                   class="form-check-input" />
@@ -68,7 +68,7 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input
-                  v-model="programmingLanguage"
+                  v-model="user.programmingLanguage"
                   value="Python"
                   type="checkbox"
                   class="form-check-input" />
@@ -78,7 +78,7 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input
-                  v-model="programmingLanguage"
+                  v-model="user.programmingLanguage"
                   value="C#"
                   type="checkbox"
                   class="form-check-input" />
@@ -88,7 +88,7 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input
-                  v-model="programmingLanguage"
+                  v-model="user.programmingLanguage"
                   value="C/C++"
                   type="checkbox"
                   class="form-check-input" />
@@ -103,7 +103,7 @@
             <div class="form-check mr-3">
               <label class="form-check-label">
                 <input
-                  v-model="gender"
+                  v-model="user.gender"
                   type="radio"
                   class="form-check-input"
                   name="gender"
@@ -115,7 +115,7 @@
             <div class="form-check mr-3">
               <label class="form-check-label">
                 <input
-                  v-model="gender"
+                  v-model="user.gender"
                   type="radio"
                   class="form-check-input"
                   name="gender"
@@ -127,7 +127,7 @@
             <div class="form-check mr-3">
               <label class="form-check-label">
                 <input
-                  v-model="gender"
+                  v-model="user.gender"
                   type="radio"
                   class="form-check-input"
                   name="gender"
@@ -141,7 +141,7 @@
         <div class="form-group row">
           <label class="col-sm-3 col-form-label"> User types: </label>
           <div class="col-sm-9">
-            <select v-model="type" class="form-control">
+            <select v-model="user.type" class="form-control">
               <option value="ADMIN">Admin</option>
               <option value="CLIENT">Client</option>
             </select>
@@ -150,14 +150,14 @@
         <div class="form-group">
           <label for="description">Description</label>
           <textarea
-            v-model="description"
+            v-model="user.description"
             class="form-control"
             id="description"
             rows="4"
           ></textarea>
         </div>
         <button
-          @click="handleSubmit"
+          @click="handleSubmit(user)"
           type="submit"
           class="btn btn-gradient-primary mr-2"
         >
@@ -170,30 +170,25 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      name: "",
-      age: 0,
-      avatar: "",
-      gender: "male",
-      programmingLanguage: [],
-      type: "CLIENT",
-      description: "",
+      user: {
+        name: "",
+        age: 0,
+        avatar: "",
+        gender: "male",
+        programmingLanguage: [],
+        type: "CLIENT",
+        description: "",
+      },
     };
   },
   methods: {
-    handleSubmit() {
-      console.log(
-        this.name,
-        this.age,
-        this.avatar,
-        this.gender,
-        this.programmingLanguage,
-        this.type,
-        this.description
-      );
-    },
+    ...mapActions({
+      handleSubmit: "addUserAction",
+    }),
   },
 };
 </script>

@@ -27,10 +27,25 @@ const store = createStore({
     setSearchKeyWordsMutation(state, payload) {
       state.searchKeyWords = payload;
     },
+    addUserActionMutation(state, payload) {
+      state.userList = [...state.userList, payload];
+      // state.userList.push(payload)
+    },
   },
   actions: {
     setSearchKeyWordsMutation(context, payload) {
-      context.commit("setSearchKeyWordsMutation", payload);
+      setTimeout(() => {
+        context.commit("setSearchKeyWordsMutation", payload);
+      }, 1500);
+    },
+    addUserAction(context, payload) {
+      //console.log("context", context,"payload", payload);
+      //create a new user object:
+      const newUser = {
+        ...payload,
+        id: Math.floor(Math.random() * 9999999999999999),
+      };
+      context.commit("addUserActionMutation", newUser);
     },
   },
 });
