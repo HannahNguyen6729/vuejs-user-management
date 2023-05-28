@@ -29,7 +29,8 @@ export default {
       filterUserListMenOnly: "filterUserListMenOnly",
       userListBySearchResult: "userListBySearchResult",
     }),
-    //mutations: update data in the store
+    //mutations: update data in the store, always synchronized
+    //actions: change data on the state, handle asynchronous action
 
     // filterUserListMenOnly() {
     //   return this.$store.getters.filterUserListMenOnly;

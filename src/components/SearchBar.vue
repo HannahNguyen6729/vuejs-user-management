@@ -11,7 +11,7 @@
       />
       <div class="input-group-append">
         <button
-          @click="handleSearch"
+          @click="handleSearch(searchUserName)"
           class="btn btn-sm btn-gradient-primary"
           type="button"
         >
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -30,9 +31,13 @@ export default {
     };
   },
   methods: {
-    handleSearch() {
-      this.$store.commit("setSearchKyWordsMutation", this.searchUserName);
-    },
+    // handleSearch() {
+    //   this.$store.dispatch("setSearchKeyWordsMutation", this.searchUserName);
+    //   // this.$store.commit("setSearchKeyWordsMutation", this.searchUserName);
+    // },
+    ...mapActions({
+      handleSearch: "setSearchKeyWordsMutation",
+    }),
   },
 };
 </script>

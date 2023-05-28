@@ -24,8 +24,13 @@ const store = createStore({
     },
   },
   mutations: {
-    setSearchKyWordsMutation(state, payload) {
+    setSearchKeyWordsMutation(state, payload) {
       state.searchKeyWords = payload;
+    },
+  },
+  actions: {
+    setSearchKeyWordsMutation(context, payload) {
+      context.commit("setSearchKeyWordsMutation", payload);
     },
   },
 });
