@@ -11,7 +11,7 @@
 <script>
 import UserItem from "./UserItem.vue";
 import { createNamespacedHelpers } from "vuex";
-const { mapState, mapGetters } = createNamespacedHelpers("user");
+const { mapState, mapGetters, mapActions } = createNamespacedHelpers("user");
 
 export default {
   components: {
@@ -40,6 +40,15 @@ export default {
     // userList() {
     //   return this.$store.state.userList;
     // },
+  },
+  methods: {
+    ...mapActions({
+      getUsers: "getUserListAction",
+    }),
+  },
+
+  created() {
+    this.getUsers();
   },
 };
 </script>

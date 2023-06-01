@@ -1,4 +1,5 @@
 import userList from "../../data/devs.json";
+import getUsersApi from "../../api/users";
 
 const state = () => {
   return {
@@ -18,6 +19,9 @@ const getters = {
 };
 
 const mutations = {
+  getUserListMutation(state, payload) {
+    state.userList = payload;
+  },
   setSearchKeyWordsMutation(state, payload) {
     state.searchKeyWords = payload;
   },
@@ -52,6 +56,11 @@ const mutations = {
 };
 
 const actions = {
+  //call api here to get the user list
+  async getUserListAction(context) {
+    const payload = await getUsersApi();
+    context.commit("getUserListMutation", payload);
+  },
   setSearchKeyWordsMutation(context, payload) {
     setTimeout(() => {
       context.commit("setSearchKeyWordsMutation", payload);
