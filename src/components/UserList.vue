@@ -10,7 +10,9 @@
 
 <script>
 import UserItem from "./UserItem.vue";
-import { mapState, mapGetters } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+const { mapState, mapGetters } = createNamespacedHelpers("user");
+
 export default {
   components: {
     UserItem,

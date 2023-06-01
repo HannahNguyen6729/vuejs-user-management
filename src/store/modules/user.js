@@ -1,12 +1,12 @@
 import userList from "../../data/devs.json";
 
-export const state = () => {
+const state = () => {
   return {
     userList,
     searchKeyWords: "",
   };
 };
-export const getters = {
+const getters = {
   filterUserListMenOnly(state) {
     return state.userList.filter((user) => user.gender === "Male");
   },
@@ -17,7 +17,7 @@ export const getters = {
   },
 };
 
-export const mutations = {
+const mutations = {
   setSearchKeyWordsMutation(state, payload) {
     state.searchKeyWords = payload;
   },
@@ -51,7 +51,7 @@ export const mutations = {
   },
 };
 
-export const actions = {
+const actions = {
   setSearchKeyWordsMutation(context, payload) {
     setTimeout(() => {
       context.commit("setSearchKeyWordsMutation", payload);
@@ -74,4 +74,12 @@ export const actions = {
     // console.log("context", context, "payload", payload);
     context.commit("removeUserActionMutation", payload);
   },
+};
+
+export default {
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions,
 };

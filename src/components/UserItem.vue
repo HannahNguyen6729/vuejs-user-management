@@ -65,7 +65,7 @@ export default {
       this.isOpenModalEdit = false;
     },
     ...mapActions({
-      removeUser: "removeUserAction",
+      removeUser: "user/removeUserAction",
     }),
   },
 };

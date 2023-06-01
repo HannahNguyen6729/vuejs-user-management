@@ -202,10 +202,14 @@ export default {
         this.handleAddUser(this.user);
       }
     },
-    ...mapActions({
+    ...mapActions("user", {
       handleAddUser: "addUserAction",
       handleUpdateUser: "updateUserAction",
     }),
+    // ...mapActions({
+    //   handleAddUser: "user/addUserAction",
+    //   handleUpdateUser: "user/updateUserAction",
+    // }),
   },
 };
 </script>
