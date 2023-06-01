@@ -1,5 +1,10 @@
 import userList from "../../data/devs.json";
-import { getUsersApi, createUserApi } from "../../api/users";
+import {
+  getUsersApi,
+  createUserApi,
+  deleteUserApi,
+  updateUserApi,
+} from "../../api/users";
 
 const state = () => {
   return {
@@ -77,13 +82,17 @@ const actions = {
     // };
     // context.commit("addUserActionMutation", newUser);
   },
-  updateUserAction(context, payload) {
-    console.log(payload);
-    context.commit("updateUserActionMutation", payload);
+  async updateUserAction(context, payload) {
+    // console.log(payload);
+    // context.commit("updateUserActionMutation", payload);
+    await updateUserApi(payload);
+    context.dispatch("getUserListAction");
   },
-  removeUserAction(context, payload) {
+  async removeUserAction(context, payload) {
+    await deleteUserApi(payload);
+    context.dispatch("getUserListAction");
     // console.log("context", context, "payload", payload);
-    context.commit("removeUserActionMutation", payload);
+    // context.commit("removeUserActionMutation", payload);
   },
 };
 
