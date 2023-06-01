@@ -4,13 +4,20 @@
     <br />
     <p>Count: {{ count }}</p>
     <button @click="handleIncrease">increase</button>
+    <br /><br />
+    <unmount-life-cycle v-if="count % 2 === 0"></unmount-life-cycle>
   </div>
 </template>
 
 <script>
+import UnmountLifeCycle from "./UnmountLifeCycle.vue";
+
 export default {
   data() {
     return { count: 0 };
+  },
+  components: {
+    UnmountLifeCycle,
   },
   methods: {
     handleIncrease() {
