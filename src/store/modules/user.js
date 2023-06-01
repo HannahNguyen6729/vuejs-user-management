@@ -1,5 +1,5 @@
 import userList from "../../data/devs.json";
-import getUsersApi from "../../api/users";
+import { getUsersApi, createUserApi } from "../../api/users";
 
 const state = () => {
   return {
@@ -66,14 +66,16 @@ const actions = {
       context.commit("setSearchKeyWordsMutation", payload);
     }, 800);
   },
-  addUserAction(context, payload) {
+  async addUserAction(context, payload) {
+    await createUserApi(payload);
+    context.dispatch("getUserListAction");
     //console.log("context", context,"payload", payload);
     //create a new user object:
-    const newUser = {
-      ...payload,
-      id: Math.floor(Math.random() * 9999999999999999),
-    };
-    context.commit("addUserActionMutation", newUser);
+    // const newUser = {
+    //   ...payload,
+    //   id: Math.floor(Math.random() * 9999999999999999),
+    // };
+    // context.commit("addUserActionMutation", newUser);
   },
   updateUserAction(context, payload) {
     console.log(payload);

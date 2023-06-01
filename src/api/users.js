@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const getUsersApi = async () => {
+export const getUsersApi = async () => {
   const response = await axios({
     method: "GET",
     url: "https://6478645f362560649a2dadfe.mockapi.io/api/v1/users",
@@ -9,4 +9,10 @@ const getUsersApi = async () => {
   return response.data;
 };
 
-export default getUsersApi;
+export const createUserApi = async (user) => {
+  await axios({
+    method: "POST",
+    url: "https://6478645f362560649a2dadfe.mockapi.io/api/v1/users",
+    data: user,
+  });
+};
